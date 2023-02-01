@@ -1,3 +1,4 @@
+<!-- Problem Statement : UC 2 Ability to create a Form Header and the Input Text Element for Name -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +13,27 @@
     <header class="header-content header">
         <div class logo="logo-content">
             <img src="Static/logo.png"
-       <div>
+          <div>
             <span class="emp-text">EMPLOYEE</span><br>
             <span class="emp-text emp-payroll">PAYROLL</span>
+         </div>
+     </div>
+     <div class="form-content">
+        <form class="form" action="#"
+        onsubmit="save();
+        return false">
+        <div class="form-head">
+            Employee Payroll Form
         </div>
-            </div>
+        <div class = "row-content">
+            <label class = "label-text"
+            for = "name">Name</label>
+            <input class="input" type = "text" id="name"
+            name="name" placeholder="Your name.."
+            required>
+        </div>
+        </form>
+     </div>
     </header>
 </body>
 </html>
