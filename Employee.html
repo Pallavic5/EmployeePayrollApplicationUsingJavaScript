@@ -1,5 +1,5 @@
-<!-- Problem Statement : UC 5 Ability to specify the start date with Day,
-Month and Year as Select Input Item -->
+<!-- Problem Statement : UC 6 Ability to add Notes as well as cancel, reset and submit
+button so as to do some action on form entry -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,6 +143,17 @@ Month and Year as Select Input Item -->
             </div>
             <valid-message class="valid-startDate" for="startDate"></valid-message>
             <error-output class="startDate-error" for="startDate"></error-output>
+        </div>
+        <div class="row-content">
+            <label class="label text" for="notes">Notes</label>
+            <textarea class="input" id="notes" name="Notes" placeholder="Write a note..." style="height:100px"></textarea>
+        </div>
+        <div class="buttonParent">
+            <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
+            <div class="submit-reset">
+                <button class="button submitButton" type="submit" id="submitButton">Submit</button>
+                <button class="resetButton button" type="reset">Reset</button>
+            </div>
         </div>
         </form>
      </div>
