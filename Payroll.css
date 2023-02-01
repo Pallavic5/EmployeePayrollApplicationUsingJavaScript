@@ -1,4 +1,4 @@
-/*Problem Statement : UC 2 Ability to create a Form Header and the Input Text Element for Name*/
+/*Problem Statement : UC 3 Ability to specify the profile pic in the Form.*/
 
 body {
     margin: 0;
@@ -38,6 +38,10 @@ body {
 
 .emp-payroll {
     color: #42515f;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .form-content{
@@ -101,6 +105,19 @@ label{
     resize: vertical;
 }
 
-* {
-    box-sizing: border-box;
+.profile-radio-content{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-radio-content > label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile{
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 12px;
 }
