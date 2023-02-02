@@ -12,30 +12,33 @@ button so as to do some action on form entry -->
 <body>
     <header class="header-content header">
         <div class logo="logo-content">
-            <img src="Static/logo.png"
+            <img src="Static/logo.png" width="75px">
+        </div>
           <div>
             <span class="emp-text">EMPLOYEE</span><br>
             <span class="emp-text emp-payroll">PAYROLL</span>
-         </div>
-     </div>
+        </div>
     </header>
-     <div class="form-content">
-        <form class="form" action="#"
+     <div id="formId" class="form-content">
+        <form class="form" action="#" onreset="resetForm()" onSubmit="save()">
         onsubmit="save();
         return false">
+        <!-- UC-2 -->
         <div class="form-head">
             Employee Payroll Form
         </div>
         <div class = "row-content">
             <label class = "label-text"
             for = "name">Name</label>
-            <input class="input" type = "text" id="name"
+            <input class="input name1" type = "text" id="name"
             name="name" placeholder="Your name.."
             required>
+            <valid-message class="valid-name" for="name"></valid-message>
+            <error-output class="text-error" for="text"></error-output>
         </div>
         <div class="row-content">
             <label class="label text" for="profile">Profile image</label>
-            <div class="profile-radio-content">
+            <div class="profile-radio-content name2">
                 <label>
                     <input type="radio" id="profile1" name="profile" value="/Static/Ellipse -3.png" required>
                     <img class="profile" id="image1" src="/Static/Ellipse -3.png">

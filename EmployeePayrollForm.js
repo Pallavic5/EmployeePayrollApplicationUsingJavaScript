@@ -1,6 +1,6 @@
-/**Problem Statement: UC1 Modify Employee Payroll Class with new Attributes and Getters and Setters
-- New Attributes added are Department, Gender, Employee Notes, Profile Pic, etc
-- Note – Getters and Setters are used for all properties and Constructor is made default */
+/**Problem Statement: Day44 UC2 Ability to set Event Listeners when Document is loaded so as to
+- Set Event Listener on Salary Range to display appropriate value
+- Validation of Name and Date */
 
 class EmployeePayrollData {
 //getter and setter method
@@ -77,3 +77,36 @@ class EmployeePayrollData {
             ",departments: " + this.departments + ", salary: " + this.salary + ", startDate: " + employeeDate + ", note: " + this._note + " ]" + "\n";
     }
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+    const name = document.querySelector("#name");
+    const textError = document.querySelector('.text-error');
+    const validName = document.querySelector(".valid-name");
+    if (name) {
+        name.addEventListener("input", function() {
+            if (name.value.length == 0) {
+                textError.textContent = "";
+                validName.textContent = "";
+                return;
+            } else {
+                try {
+                    (new EmployeePayrollData()).name = name.value;
+                    textError.textContent = "";
+                    validName.textContent = '✓';
+                    document.querySelector(".submitButton").disabled = false;
+                } catch (error) {
+                    textError.textContent = error;
+                    validName.textContent = "";
+                    document.querySelector(".submitButton").disabled = true;
+                }
+            }
+        });
+    }
+
+    const salary = document.querySelector("#salary");
+    const output = document.querySelector(".salary-output");
+    output.textContent=salary.value;
+    salary.addEventListener('input',function() {
+        output.textContent = salary.value;
+    }); 
+});
