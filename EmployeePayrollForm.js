@@ -1,6 +1,4 @@
-/**Problem Statement: Day44 UC4 Ability to save the Employee Payroll Object to Local Storage. 
- - Understand the difference between Local Storage, Session Storage and older feature of
-storing in cookies. */
+/**Problem Statement: Day44 UC5 Ability to reset the form on clicking reset */
 
 class EmployeePayrollData {
 //getter and setter method
@@ -179,3 +177,42 @@ function createAndUpdateLocalStorage(employeePayrollData) {
     alert("Local Storage Updated Successfully!\nTotal Employees : " + employeePayrollList.toString);
     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
 }
+
+const createEmployeeId = () => {
+    let employeeId = localStorage.getItem("EmployeeID");
+    employeeId = !employeeId ? 1 : (parseInt(employeeId) + 1).toString();
+    localStorage.setItem("EmployeeID", employeeId);
+    return employeeId;
+};
+
+const resetForm = () => {
+    setValue("#name", "");
+    setValue(".name-error");
+    setValue(".valid-name");
+    unsetSelectedValues("[name=profile]");
+    unsetSelectedValues("[name=gender]");
+    unsetSelectedValues("[name=departments]");
+    setValue("#salary", "");
+    setValue("#notes", "");
+    setValue("#day", "1");
+    setValue("#month", "January");
+    setValue("#year", "2020");
+};
+
+const unsetSelectedValues = (propertyValue) => {
+    let allItems = document.querySelectorAll(propertyValue);
+     allItems.forEach(item => {
+         item.checked = false
+     });
+ }
+ const setTextValue = (id, value) => {
+    const contentElement = document.querySelector(id);
+    contentElement.textContent = value;
+};
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+};
+
+
