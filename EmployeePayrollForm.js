@@ -1,6 +1,5 @@
-/**Problem Statement: Day44 UC2 Ability to set Event Listeners when Document is loaded so as to
-- Set Event Listener on Salary Range to display appropriate value
-- Validation of Name and Date */
+/**Problem Statement: Day44 UC3 Ability to create Employee Payroll Object On Save.
+- Validation of Name and Date and if failed then set the UI accordingly */
 
 class EmployeePayrollData {
 //getter and setter method
@@ -77,7 +76,7 @@ class EmployeePayrollData {
             ",departments: " + this.departments + ", salary: " + this.salary + ", startDate: " + employeeDate + ", note: " + this._note + " ]" + "\n";
     }
 }
-
+//    On Document Load Set Event Listeners
 window.addEventListener("DOMContentLoaded", () => {
     const name = document.querySelector("#name");
     const textError = document.querySelector('.text-error');
@@ -110,3 +109,60 @@ window.addEventListener("DOMContentLoaded", () => {
         output.textContent = salary.value;
     }); 
 });
+
+    // On Save Create Employee Payroll Object
+const save = () => {
+    try {
+        let employeePayrollData = createEmployeePayrollObject();
+        if (employeePayrollData != undefined) updateLocalStorage(employeePayrollData);
+    } catch (submitError) {
+        alert(submitError);
+        return;
+    }
+};
+
+const createEmployeePayrollObject = () => {
+    let employeePayrollData = new EmployeePayrollData();
+
+    employeePayrollData.name = getValue("#name");
+    employeePayrollData.gender = getSelectedValues("[name=gender]").pop();
+    employeePayrollData.profilePicture = getSelectedValues("[name=profile]").pop();
+    employeePayrollData.salary = getValue("#salary");
+    dateString = document.querySelector("#month").value + " " + document.querySelector("#day").value + ", " + document.querySelector("#year").value;
+    employeePayrollData.startDate = new Date(dateString);
+    employeePayrollData.note = getValue("#notes");
+    try {
+        employeePayrollData.departments = getSelectedValues("[name=department]");
+    } catch (error) {
+        alert(error);
+        return;
+    }
+    employeePayrollData.id = createEmployeeId();
+    alert("Employee Added Successfully!\n" + employeePayrollData.toString());
+    return employeePayrollData;
+};
+
+const getSelectedValues = (propertyValue) => {
+    let allItems = document.querySelectorAll(propertyValue);
+    let selectedItems = [];
+    allItems.forEach(item => {
+        if (item.checked) selectedItems.push(item.value);
+    });
+    return selectedItems;
+};
+/**1. QuerySelector is the newer feature .
+ * 2. The querySelector method can be used when selecting by element name, nesting, or class name.
+ * 3. QuerySelector lets you find elements with rules that can't be expressed with getElementByID.
+ */
+const getInputValueById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
+
+/**1. getElementById is better supported than querySelector in older versions of the browsers.
+ * 2. The thing with getElementById is that it only allows to select an element by its id.
+*/
+const getInputElementValue = (id) => {
+    let value = document.getElementById(id).value;
+    return value;
+}
