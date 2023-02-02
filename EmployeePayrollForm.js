@@ -1,5 +1,6 @@
-/**Problem Statement: Day44 UC3 Ability to create Employee Payroll Object On Save.
-- Validation of Name and Date and if failed then set the UI accordingly */
+/**Problem Statement: Day44 UC4 Ability to save the Employee Payroll Object to Local Storage. 
+ - Understand the difference between Local Storage, Session Storage and older feature of
+storing in cookies. */
 
 class EmployeePayrollData {
 //getter and setter method
@@ -114,7 +115,7 @@ window.addEventListener("DOMContentLoaded", () => {
 const save = () => {
     try {
         let employeePayrollData = createEmployeePayrollObject();
-        if (employeePayrollData != undefined) updateLocalStorage(employeePayrollData);
+        if (employeePayrollData != undefined) createAndUpdateLocalStorage(employeePayrollData);
     } catch (submitError) {
         alert(submitError);
         return;
@@ -165,4 +166,16 @@ const getInputValueById = (id) => {
 const getInputElementValue = (id) => {
     let value = document.getElementById(id).value;
     return value;
+}
+
+//Saving Employee Payroll to Local Storage
+function createAndUpdateLocalStorage(employeePayrollData) {
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if (employeePayrollList != undefined) {
+        employeePayrollList.push(employeePayrollData);
+    } else {
+        employeePayrollList = [employeePayrollData];
+    }
+    alert("Local Storage Updated Successfully!\nTotal Employees : " + employeePayrollList.toString);
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
 }
