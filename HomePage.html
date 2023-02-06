@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="HomePageStyle.css" />
+    <script src="New_HomePage.js"></script>
+
+    <title>Employee Payroll Application</title>
+  </head>
+  <body>
+    <header class="header-contrnt header">
+      <div class="logo-content">
+        <img src="Static/logo.png" alt="" />
+        <div>
+          <span class="emp-text">EMPLOYEE</span><br />
+          <span class="emp-text emp-payroll">PAYROLL</span>
+        </div>
+      </div>
+    </header>
+    <div class="main-content">
+      <div class="header-content">
+        <div class="emp-details-text">
+          Employee Details
+          <div class="emp-count">10</div>
+        </div>
+        <div>
+          <a href="Employee.html" class="add-button">
+            <img src="Static/add-24px.svg" alt="" />Add User
+          </a>
+        </div>
+      </div>
+      <div class="table-main">
+        <table id="table display" class="table">
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Start Date</th>
+            <th>Action</th>
+          </tr>
+          <tr>
+            <td>
+              <img
+                class="profile"
+                src="Static/Ellipse -1.png"
+                alt=""
+              />
+            </td>
+            <td>Pallavi Chedge</td>
+            <td>Female</td>
+            <td>
+              <div class="dept-label">HR</div>
+              <div class="dept-label">Finance</div>
+            </td>
+            <td>3000000</td>
+            <td>1 Nov 2020</td>
+            <td>
+              <img
+                id="1"
+                onclick="remove(this)"
+                src="Static/delete-black-18dp.svg"
+                alt="delete"
+              />
+              <img
+                id="1"
+                onclick="update(this)"
+                src="Static/create-black-18dp.svg"
+                alt="edit"
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

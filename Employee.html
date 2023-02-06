@@ -1,5 +1,6 @@
 <!-- Problem Statement : UC 6 Ability to add Notes as well as cancel, reset and submit
-button so as to do some action on form entry -->
+button so as to do some action on form entry  -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,10 @@ button so as to do some action on form entry -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Payroll Form</title>
-    <link rel="stylesheet" href="Payroll.css">  
+    <link rel="stylesheet" href="Payroll.css">
 </head>
 <body>
+    <script src="EmployeePayrollForm.js"></script>
     <header class="header-content header">
         <div class logo="logo-content">
             <img src="Static/logo.png" width="75px">
@@ -20,7 +22,7 @@ button so as to do some action on form entry -->
         </div>
     </header>
      <div id="formId" class="form-content">
-        <form class="form" action="#" onreset="resetForm()" onSubmit="save()">
+        <form class="form" action="#" onreset="resetForm()" onSubmit="save();return false">
         <!-- UC-2 -->
         <div class="form-head">
             Employee Payroll Form
@@ -150,7 +152,7 @@ button so as to do some action on form entry -->
             <textarea class="input" id="notes" name="Notes" placeholder="Write a note..." style="height:100px"></textarea>
         </div>
         <div class="buttonParent">
-            <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
+            <a href="HomePage.html" class="resetButton button cancelButton">Cancel</a>
             <div class="submit-reset">
                 <button class="button submitButton" type="submit" id="submitButton">Submit</button>
                 <button class="resetButton button" type="reset">Reset</button>
