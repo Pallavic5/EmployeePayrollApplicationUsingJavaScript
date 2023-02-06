@@ -1,5 +1,4 @@
 /**Problem Statement: Day44 UC5 Ability to reset the form on clicking reset */
-
 class EmployeePayrollData {
 //getter and setter method
     get id() {
@@ -38,9 +37,7 @@ class EmployeePayrollData {
         return this._department;
     }
     set department(department) {
-       // if (department.length != 0) {
             this._department = department;
-        //} else throw "No Department Entered!";
     }
 
     get salary() {
@@ -61,17 +58,13 @@ class EmployeePayrollData {
         return this._startDate;
     }
     set startDate(startDate) {
-       // if (startDate <= new Date()) {
             this._startDate = startDate;
-       // } else throw "Start Date is Incorrect!";
     }
 
     //toString method
     toString() {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const employeeDate = !this.startDate ? "undefined" : this.startDate;
-        // const employeeDate = !this.startDate ? "undefined" :
-        //     this.startDate.toLocaleDateString("en-US", options);
         return "[ id: " + this.id + ", name: " + this.name + ", gender: " + this.gender + ", profilePicture: " + this._profilePicture +
             ",departments: " + this.departments + ", salary: " + this.salary + ", startDate: " + employeeDate + ", note: " + this._note + " ]" + "\n";
     }
@@ -150,13 +143,6 @@ const getInputValue = (id) => {
 //Saving Employee Payroll to Local Storage
 function createAndUpdateStorage(employeePayrollData) {
     let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
-    // let empDataEdidted = localStorage.getItem("editEmp");
-    // if (empDataEdidted) {
-    //     empDataEdidted = JSON.parse(empDataEdidted);
-    //     let empPayrollData = employeePayrollList.filter(empData => empData._id != empDataEdidted._id);
-    //     employeePayrollList = empPayrollData;
-    // }
-
     if (employeePayrollList != undefined) {
         employeePayrollList.push(employeePayrollData);
     }
@@ -164,7 +150,6 @@ function createAndUpdateStorage(employeePayrollData) {
         employeePayrollList = [employeePayrollData];
     }
     alert(employeePayrollList.toString());
-   // localStorage.setItem('editEmp', JSON.stringify(employeePayrollData));
     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
    
 }
