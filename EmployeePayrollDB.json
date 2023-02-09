@@ -1,0 +1,34 @@
+{
+  "EmployeePayrollDB": [
+    {
+      "id": 1,
+      "_name": "Mark",
+      "_gender": "male",
+      "_department": [
+        "Engineering",
+        "Finance"
+      ],
+      "_salary": "500000",
+      "_startDate": "16 Nov 2020",
+      "_note": "Hello World",
+      "_profilePic": "3.jpeg"
+    },
+    {
+      "id": 2,
+      "_name": "Bill Gates",
+      "_gender": "male",
+      "_department": [
+        "Engineering"
+      ],
+      "_salary": "500000",
+      "_startDate": "16 Nov 2020",
+      "_note": "Sales",
+      "_profilePic": "1.jpeg"
+    },
+    {
+      "name": "Harry",
+      "Salary": "5000",
+      "id": 3
+    }
+  ]
+}
